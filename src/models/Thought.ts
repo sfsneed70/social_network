@@ -1,10 +1,12 @@
 import { Schema, model, Document, ObjectId } from "mongoose";
 import Reaction from "./Reaction.js";
+import formatDate from "../utils/formatDate.js";
 
 interface IThought extends Document {
   thoughtText: String;
   createdAt: Date;
   username: string;
+  // userId: ObjectId;
   reactions: ObjectId[];
 }
 
@@ -19,12 +21,16 @@ const ThoughtSchema = new Schema<IThought>(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdAtVal: any) => createdAtVal.toLocaleString(),
+      get: formatDate as any,
     },
     username: {
       type: String,
       required: true,
     },
+    // userId: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "User",
+    // },
     reactions: [Reaction],
   },
   {

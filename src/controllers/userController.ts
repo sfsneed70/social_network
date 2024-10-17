@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 
 export const getUsers = async (_req: Request, res: Response) => {
   try {
-    const users = await User.find();
+    const users = await User.find().select("-__v");
     res.json(users);
   } catch (err) {
     res.status(500).json(err);
@@ -13,7 +13,10 @@ export const getUsers = async (_req: Request, res: Response) => {
 
 export const getSingleUser = async (req: Request, res: Response) => {
   try {
-    const user = await User.findOne({ _id: req.params.userId });
+    const user = await User.findOne({ _id: req.params.userId })
+      .populate({ path: "thoughts", select: "-__v" })
+      .populate({ path: "friends", select: "-__v" })
+      .select("-__v");
 
     if (!user) {
       res.status(404).json({ message: "No user with that ID" });
