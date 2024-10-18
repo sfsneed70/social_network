@@ -33,7 +33,7 @@ const ReactionSchema = new Schema<IReaction>(
     toJSON: {
       getters: true,
     },
-    id: false,
+    _id: false,
   }
 );
 

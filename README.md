@@ -8,7 +8,7 @@ A social network web application where users can share their thoughts, react to 
 
 Github URL:  https://github.com/sfsneed70/social_network
 
-Walkthrough Video:  PUT LINK HERE
+Walkthrough Video:  PUT LINK HERE --- REMEMBER TO SET PERMISSIONS ON GOOGLE DOC VIDEO
 
 ## Table of Contents
 
