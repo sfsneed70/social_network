@@ -4,7 +4,7 @@ import formatDate from "../utils/formatDate.js";
 
 interface IThought extends Document {
   thoughtText: String;
-  createdAt: Date;
+  createdAt: Date | String;
   username: string;
   // userId: ObjectId;
   reactions: ObjectId[];
@@ -21,7 +21,7 @@ const ThoughtSchema = new Schema<IThought>(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: formatDate as any,
+      get: formatDate,
     },
     username: {
       type: String,
