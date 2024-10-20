@@ -38,6 +38,7 @@ const ThoughtSchema = new Schema<IThought>(
       virtuals: true,
       getters: true,
     },
+    id: false,
   }
 );
 
